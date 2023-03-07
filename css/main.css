@@ -614,5 +614,64 @@ padding-top: var(--sm-section-padding-top); } }
                             font-size: 23px;
                             font-weight: 400;               
                             color: var(--green-color); }
+
+
+.contact {
+padding-top: var(--lg-section-padding-top); }
+@media (max-width: 61.9375em) { 
+.contact {
+padding-top: var(--md-section-padding-top); } }
+@media (max-width: 47.9375em) { 
+.contact { 
+padding-top: var(--sm-section-padding-top); } } 
+            .contact__social-icons {
+            margin-top: 2rem; } 
+                .contact__social-icons a {
+                transition: var(--main-duration);
+                padding: 0 1rem;    
+                font-size: 23px;
+                color: var(--green-color); }
+                .contact__social-icons a:hover i {
+                transform: translateY(-2px);
+                color: var(--green-hover); }
+                    .contact__social-icons i {
+                    transition: var(--main-duration); }
+        .contact__form-container {
+        margin: 4rem auto 0;
+        max-width: 700px; } 
+                .contact__form-name,
+                .contact__form-email,
+                .contact__form-message {
+                padding-top: 3rem; }
+                    .contact__form-label {
+                    display: block;
+                    margin-bottom: 1rem;
+                    text-align: left;
+                    letter-spacing: 1px; }
+                    .contact__form-input {
+                    outline: none;
+                    border: 1px solid var(--nails1-color);
+                    border-radius: 4px;
+                    width: 100%;
+                    padding: 1rem 2rem;
+                    background-color: var(--secondary-color); 
+                    color: var(--sm-text-color);}
+                    .contact__form-input:focus {
+                    outline: 1px solid var(--sm-text-color); }
+                    .contact__form-input--valid {
+                    border-color: var(--green-color);
+                    background-color: #02a97515; }
+                    .contact__form-input--valid:focus {
+                    outline-color: var(--green-color); }
+                    .contact__form-input--error {
+                    border-color: var(--orange-color);
+                    background-color:#ff725e15; }
+                    .contact__form-input--error:focus {
+                    outline-color: var(--orange-color); }
+                    .contact__submit {
+                    cursor: pointer; }
+                    .contact__submit--disabled {
+                    cursor: not-allowed;
+                    opacity: 0.4; }
     
     /* End Custom Style */ 
