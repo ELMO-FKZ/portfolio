@@ -1,9 +1,10 @@
 // Selectors
 
 let darkToggle = document.querySelector('.header__checkbox-item');
-let navBurger= document.querySelector('.header__nav-burger');
+let navBurger = document.querySelector('.header__nav-burger');
 let list = document.querySelector('.header__list');
 let overlay = document.querySelector('.header__overlay');
+let switchItems = document.querySelectorAll(".portfolio__switch-item");
 
 // Variables
 
@@ -26,6 +27,15 @@ navBurger.addEventListener('keypress', toggleNavEnter);
 overlay.addEventListener("click", toggleNav);
     //-- Resize the window
 window.addEventListener("resize", windowResize);
+    //-- Click on portfolio filter
+switchItems.forEach((switchItem) => {
+    switchItem.addEventListener("click", removeActive);
+    switchItem.addEventListener("click", manageBoxes);
+});
+    //-- Click ENTER keyboard on portfolio filter
+switchItems.forEach((switchItem) => {
+    switchItem.addEventListener("keypress", filterOnEnter);
+});
 
 // Functions
 
@@ -80,7 +90,31 @@ function toggleNavEnter(e) {
 }
 
 function windowResize() {
-overlay.classList.remove('header__overlay--show');
-list.classList.remove('header__list--show');
-navBurger.classList.remove('header__nav-burger--change');
+    overlay.classList.remove('header__overlay--show');
+    list.classList.remove('header__list--show');
+    navBurger.classList.remove('header__nav-burger--change');
+}
+
+function removeActive() {
+    switchItems.forEach((switchItem) => {
+        switchItem.classList.remove("portfolio__switch-item--active");
+        this.classList.add("portfolio__switch-item--active");
+    });
+}
+
+function manageBoxes() {
+    let boxes = document.querySelectorAll(".portfolio__box");
+    boxes.forEach((box) => {
+        box.style.display = "none";
+    });
+    document.querySelectorAll(this.dataset.cat).forEach((box) => {
+        box.style.display = "block";
+    });
+}
+
+
+function filterOnEnter(e) {
+    if (e.key == "Enter") {
+        e.target.click();
+    }
 }
